@@ -126,6 +126,10 @@ const CounterView = React.createClass({
             GO
           </Text>
         </TouchableOpacity>
+
+        <Text style={styles.textResults}>
+          Results
+        </Text>
       </View>
     );
   }
@@ -184,9 +188,13 @@ const styles = StyleSheet.create({
   },
   cpInput: {
     textAlign: 'center',
-    height: 30,
-    width: 200,
+    height: 40,
+    marginLeft: 70,
+    marginRight: 70,
     backgroundColor: 'white',
+  },
+  textResults: {
+
   }
 });
 
