@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   Text,
+  TextInput,
   Picker,
   View
 } from 'react-native';
@@ -113,32 +114,18 @@ const CounterView = React.createClass({
             />
           ))}
         </Picker>
+        <TextInput
+          style={styles.cpInput}
+          placeholder="CP"
+          keyboardType='numeric'/>
+
         <TouchableOpacity
           onPress={this.increment}
           style={[styles.counterButton, loadingStyle]}>
           <Text style={styles.counter}>
-            {this.props.counter}
+            GO
           </Text>
         </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.reset}>
-          <Text style={styles.linkButton}>
-            Reset
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.random}>
-          <Text style={styles.linkButton}>
-            Random
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.bored} accessible={true}>
-          <Text style={styles.linkButton}>
-            {'I\'m bored!'}
-          </Text>
-        </TouchableOpacity>
-
       </View>
     );
   }
@@ -156,7 +143,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: '#ddd'
   },
   userContainer: {
     justifyContent: 'center',
@@ -192,6 +179,14 @@ const styles = StyleSheet.create({
   },
   picker: {
     width: 300,
+    backgroundColor: 'white',
+    marginBottom: 10,
+  },
+  cpInput: {
+    textAlign: 'center',
+    height: 30,
+    width: 200,
+    backgroundColor: 'white',
   }
 });
 
