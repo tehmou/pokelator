@@ -1,4 +1,4 @@
-package com.pepperoniapptemplate;
+package com.pokemongocompanion;
 
 import android.app.Application;
 import android.util.Log;
