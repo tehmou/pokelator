@@ -6,8 +6,41 @@ import {
   TouchableOpacity,
   Image,
   Text,
+  Picker,
   View
 } from 'react-native';
+
+var POKEMON = {
+  bulbasaur: {
+    name: 'Bulbasaur'
+  },
+  ivysaur: {
+    name: 'Ivysaur'
+  },
+  venusaur: {
+    name: 'Venusaur'
+  },
+  charmander: {
+    name: 'Charmander'
+  },
+  charmeleon: {
+    name: 'Charmeleon'
+  },
+  charizard: {
+    name: 'Charizard'
+  },
+  squirtle: {
+    name: 'Squirtle'
+  },
+  wartortle: {
+    name: 'Wartortle'
+  },
+  blastoise: {
+    name: 'Blastoise'
+  },
+};
+
+const Item = Picker.Item;
 
 const CounterView = React.createClass({
   propTypes: {
@@ -15,7 +48,8 @@ const CounterView = React.createClass({
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    selectedPokemon: PropTypes.string,
   },
   increment() {
     this.props.dispatch(CounterState.increment());
@@ -31,6 +65,9 @@ const CounterView = React.createClass({
       key: 'Color',
       title: 'Color Screen'
     }));
+  },
+  selectPokemon(pokemon) {
+    this.props.dispatch(CounterState.selectPokemon(pokemon));
   },
 
   renderUserInfo() {
@@ -64,6 +101,18 @@ const CounterView = React.createClass({
 
         {this.renderUserInfo()}
 
+        <Picker
+          style={styles.picker}
+          selectedValue={this.props.selectedPokemon}
+          onValueChange={(pokemon) => this.selectPokemon(pokemon)}>
+          {Object.keys(POKEMON).map((pokemon) => (
+            <Item
+              key={pokemon}
+              value={pokemon}
+              label={POKEMON[pokemon].name}
+            />
+          ))}
+        </Picker>
         <TouchableOpacity
           onPress={this.increment}
           style={[styles.counterButton, loadingStyle]}>
@@ -140,6 +189,9 @@ const styles = StyleSheet.create({
     color: '#CCCCCC',
     marginBottom: 10,
     padding: 5
+  },
+  picker: {
+    width: 300,
   }
 });
 

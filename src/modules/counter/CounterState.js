@@ -5,7 +5,8 @@ import {generateRandomNumber} from '../../services/randomNumberService';
 // Initial state
 const initialState = Map({
   value: 0,
-  loading: false
+  loading: false,
+  selectedPokemon: 'bulbasaur'
 });
 
 // Actions
@@ -13,6 +14,7 @@ const INCREMENT = 'CounterState/INCREMENT';
 const RESET = 'CounterState/RESET';
 const RANDOM_REQUEST = 'CounterState/RANDOM_REQUEST';
 const RANDOM_RESPONSE = 'CounterState/RANDOM_RESPONSE';
+const SELECT_POKEMON = 'CounterState/SELECT_POKEMON';
 
 // Action creators
 export function increment() {
@@ -27,6 +29,13 @@ export function random() {
   return {
     type: RANDOM_REQUEST
   };
+}
+
+export function selectPokemon(pokemon) {
+  return {
+    type: SELECT_POKEMON,
+    payload: pokemon
+  }
 }
 
 export async function requestRandomNumber() {
@@ -55,6 +64,10 @@ export default function CounterStateReducer(state = initialState, action = {}) {
       return state
         .set('loading', false)
         .set('value', action.payload);
+
+    case SELECT_POKEMON:
+      return state
+        .set('selectedPokemon', action.payload);
 
     default:
       return state;
