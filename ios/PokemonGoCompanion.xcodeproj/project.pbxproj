@@ -376,6 +376,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PokemonGoCompanion" */;
 			buildPhases = (
+				BEEDC370084902682476629B /* 📦 Check Pods Manifest.lock */,
 				AFBB54E34F90DD1C36282261 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -383,6 +384,8 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				29B781EE8271042BF9ED40BA /* [CP] Embed Pods Frameworks */,
 				877A58A8D4619B1529992CA6 /* [CP] Copy Pods Resources */,
+				05D835B7E3CBCF3683D9E37D /* 📦 Embed Pods Frameworks */,
+				A8C57802EBAD6C9701BD33F0 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -587,6 +590,21 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
+		05D835B7E3CBCF3683D9E37D /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokemonGoCompanion/Pods-PokemonGoCompanion-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		29B781EE8271042BF9ED40BA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -617,6 +635,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokemonGoCompanion/Pods-PokemonGoCompanion-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A8C57802EBAD6C9701BD33F0 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokemonGoCompanion/Pods-PokemonGoCompanion-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AFBB54E34F90DD1C36282261 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -625,6 +658,21 @@
 			inputPaths = (
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BEEDC370084902682476629B /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
