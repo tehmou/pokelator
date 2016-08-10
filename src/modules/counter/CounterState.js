@@ -5,19 +5,28 @@ import {generateRandomNumber} from '../../services/randomNumberService';
 // Initial state
 const initialState = Map({
   selectedPokemon: 'bulbasaur',
+  cp: 0,
   calculatedCp: 0,
 });
 
 // Actions
 const SELECT_POKEMON = 'CounterState/SELECT_POKEMON';
+const SET_CP = 'CounterState/SET_CP';
 const CALCULATE = 'CounterState/CALCULATE';
 
 // Action creators
 export function selectPokemon(pokemon) {
   return {
     type: SELECT_POKEMON,
-    payload: pokemon
+    payload: pokemon,
   }
+}
+
+export function setCp(cp) {
+  return {
+    type: SET_CP,
+    payload: cp,
+  };
 }
 
 export function calculate() {
@@ -32,8 +41,14 @@ export default function CounterStateReducer(state = initialState, action = {}) {
       return state
         .set('selectedPokemon', action.payload);
 
+    case SET_CP:
+      return state
+        .set('cp', action.payload);
+
     case CALCULATE:
-      return state;
+      var cp = state.get('cp');
+      return state
+        .set('calculatedCp', 2 * cp);
 
     default:
       return state;

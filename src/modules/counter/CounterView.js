@@ -53,10 +53,14 @@ const CounterView = React.createClass({
   propTypes: {
     dispatch: PropTypes.func.isRequired,
     selectedPokemon: PropTypes.string,
-    calculatedCp: PropTypes.string,
+    cp: PropTypes.number,
+    calculatedCp: PropTypes.number,
   },
   selectPokemon(pokemon) {
     this.props.dispatch(CounterState.selectPokemon(pokemon));
+  },
+  setCp(cp) {
+    this.props.dispatch(CounterState.setCp(cp));
   },
   calculate() {
     this.props.dispatch(CounterState.calculate());
@@ -106,6 +110,7 @@ const CounterView = React.createClass({
           ))}
         </Picker>
         <TextInput
+          onChangeText={(cp) => this.setCp(cp)}
           style={styles.cpInput}
           placeholder="CP"
           keyboardType='numeric'/>
@@ -118,8 +123,9 @@ const CounterView = React.createClass({
           </Text>
         </TouchableOpacity>
 
-        <Text style={styles.textResults}>
-          Results
+        <Text
+          style={styles.textResults}>
+          {this.props.calculatedCp}
         </Text>
       </View>
     );
