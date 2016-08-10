@@ -19,7 +19,7 @@ const CounterView = React.createClass({
     pokemonList: PropTypes.array,
     selectedPokemon: PropTypes.number,
     cp: PropTypes.number,
-    calculatedCp: PropTypes.number,
+    calculatedCp: PropTypes.string,
   },
   selectPokemon(pokemon) {
     this.props.dispatch(CounterState.selectPokemon(pokemon));
@@ -32,6 +32,9 @@ const CounterView = React.createClass({
   },
 
   render() {
+console.log("render");
+console.log(this.props.pokemonList);
+
     const loadingStyle = this.props.loading
       ? {backgroundColor: '#eee'}
       : null;

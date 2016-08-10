@@ -306,9 +306,9 @@ function getPokemonById(id) {
 // Initial state
 const initialState = Map({
   pokemonList: POKEMON,
-  selectedPokemon: 0,
+  selectedPokemon: 1,
   cp: 0,
-  calculatedCp: 0,
+  calculatedCp: "",
 });
 
 // Actions
@@ -351,8 +351,16 @@ export default function CounterStateReducer(state = initialState, action = {}) {
       var pokemon = getPokemonById(state.get('selectedPokemon'));
       var cp = state.get('cp');
       var multiplier = pokemon.evolution.avg;
+      var firstCp = multiplier * cp;
+
+      if (pokemon.nextEvolution) {
+        var nextEvolution = getPokemonById(pokemon.nextEvolution);
+        if (nextEvolution.evolution) {
+          var secondCp = nextEvolution.evolution.avg * firstCp;
+        }
+      }
       return state
-        .set('calculatedCp', multiplier * cp);
+        .set('calculatedCp', Math.round(firstCp) + "\n" + Math.round(secondCp));
 
     default:
       return state;
