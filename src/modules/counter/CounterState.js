@@ -4,7 +4,7 @@ import {generateRandomNumber} from '../../services/randomNumberService';
 
 // Initial state
 const initialState = Map({
-  selectedPokemon: 'bulbasaur',
+  selectedPokemon: {},
   cp: 0,
   calculatedCp: 0,
 });
@@ -47,8 +47,9 @@ export default function CounterStateReducer(state = initialState, action = {}) {
 
     case CALCULATE:
       var cp = state.get('cp');
+      var multiplier = state.get('selectedPokemon').evolution.avg;
       return state
-        .set('calculatedCp', 2 * cp);
+        .set('calculatedCp', multiplier * cp);
 
     default:
       return state;

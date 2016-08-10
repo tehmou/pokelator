@@ -13,36 +13,45 @@ import {
 
 var POKEMON = {
   bulbasaur: {
+    id: 'bulbasaur',
     name: 'Bulbasaur',
     evolution: { avg: 1.92, min: 1.00, max: 13.50, median: 1.57, deviation: 0.20 },
   },
   ivysaur: {
+    id: 'ivysaur',
     name: 'Ivysaur',
     evolution: { avg: 1.63, min: 1.00, max: 2.25, median: 1.59, deviation: 0.03 },
   },
   venusaur: {
+    id: 'venusaur',
     name: 'Venusaur',
   },
   charmander: {
+    id: 'charmander',
     name: 'Charmander',
     evolution: { avg: 2.20, min: 1.00, max: 13.52, median: 1.67, deviation: 0.19 },
   },
   charmeleon: {
+    id: 'charmeleon',
     name: 'Charmeleon',
     evolution: { avg: 1.92, min: 1.00, max: 5.78, median: 1.77, deviation: 0.08 },
   },
   charizard: {
+    id: 'charizard',
     name: 'Charizard',
   },
   squirtle: {
+    id: 'squirtle',
     name: 'Squirtle',
     evolution: { avg: 1.79, min: 1.00, max: 6.14, median: 1.63, deviation: 0.12 },
   },
   wartortle: {
+    id: 'wartortle',
     name: 'Wartortle',
     evolution: { avg: 1.68, min: 1.00, max: 2.89, median: 1.65, deviation: 0.04 },
   },
   blastoise: {
+    id: 'blastoise',
     name: 'Blastoise',
   },
 };
@@ -52,7 +61,7 @@ const Item = Picker.Item;
 const CounterView = React.createClass({
   propTypes: {
     dispatch: PropTypes.func.isRequired,
-    selectedPokemon: PropTypes.string,
+    selectedPokemon: PropTypes.object,
     cp: PropTypes.number,
     calculatedCp: PropTypes.number,
   },
@@ -99,8 +108,8 @@ const CounterView = React.createClass({
 
         <Picker
           style={styles.picker}
-          selectedValue={this.props.selectedPokemon}
-          onValueChange={(pokemon) => this.selectPokemon(pokemon)}>
+          selectedValue={this.props.selectedPokemon.id}
+          onValueChange={(pokemon) => this.selectPokemon(POKEMON[pokemon])}>
           {Object.keys(POKEMON).map((pokemon) => (
             <Item
               key={pokemon}
