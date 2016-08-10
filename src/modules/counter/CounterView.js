@@ -89,17 +89,14 @@ const circle = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#ddd'
+    backgroundColor: '#ddd',
+    marginTop: 70,
   },
   userContainer: {
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  userProfilePhoto: {
-    ...circle,
-    alignSelf: 'center'
   },
   counterButton: {
     ...circle,
@@ -112,18 +109,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
     textAlign: 'center'
-  },
-  welcome: {
-    textAlign: 'center',
-    color: 'black',
-    marginBottom: 5,
-    padding: 5
-  },
-  linkButton: {
-    textAlign: 'center',
-    color: '#CCCCCC',
-    marginBottom: 10,
-    padding: 5
   },
   picker: {
     width: 300,
