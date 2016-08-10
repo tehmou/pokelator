@@ -25,7 +25,6 @@ const NavigationView = React.createClass({
     navigationState: PropTypes.shape({
       tabs: NavigationPropTypes.navigationState.isRequired,
       HomeTab: NavigationPropTypes.navigationState.isRequired,
-      ProfileTab: NavigationPropTypes.navigationState.isRequired
     }),
     switchTab: PropTypes.func.isRequired,
     pushRoute: PropTypes.func.isRequired
@@ -69,12 +68,6 @@ const NavigationView = React.createClass({
           renderOverlay={this.renderHeader}
           renderScene={this.renderScene}
         />
-        <TabBar
-          height={TAB_BAR_HEIGHT}
-          tabs={tabs}
-          currentTabIndex={tabs.index}
-          switchTab={this.props.switchTab}
-        />
       </View>
     );
   }
@@ -86,8 +79,6 @@ const styles = StyleSheet.create({
   },
   sceneContainer: {
     flex: 1,
-    marginTop: APP_BAR_HEIGHT,
-    marginBottom: TAB_BAR_HEIGHT
   }
 });
 
