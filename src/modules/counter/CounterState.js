@@ -4,7 +4,7 @@ import {generateRandomNumber} from '../../services/randomNumberService';
 
 // Initial state
 const initialState = Map({
-  selectedPokemon: {},
+  selectedPokemon: { id: 0 },
   cp: 0,
   calculatedCp: 0,
 });
