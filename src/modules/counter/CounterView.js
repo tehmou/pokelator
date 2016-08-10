@@ -24,7 +24,7 @@ var POKEMON = {
     name: 'Venusaur',
   },
   charmander: {
-    name: 'Charmander'
+    name: 'Charmander',
     evolution: { avg: 2.20, min: 1.00, max: 13.52, median: 1.67, deviation: 0.19 },
   },
   charmeleon: {
@@ -51,30 +51,15 @@ const Item = Picker.Item;
 
 const CounterView = React.createClass({
   propTypes: {
-    counter: PropTypes.number.isRequired,
-    userName: PropTypes.string,
-    userProfilePhoto: PropTypes.string,
-    loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired,
     selectedPokemon: PropTypes.string,
-  },
-  increment() {
-    this.props.dispatch(CounterState.increment());
-  },
-  reset() {
-    this.props.dispatch(CounterState.reset());
-  },
-  random() {
-    this.props.dispatch(CounterState.random());
-  },
-  bored() {
-    this.props.dispatch(NavigationState.pushRoute({
-      key: 'Color',
-      title: 'Color Screen'
-    }));
+    calculatedCp: PropTypes.string,
   },
   selectPokemon(pokemon) {
     this.props.dispatch(CounterState.selectPokemon(pokemon));
+  },
+  calculate() {
+    this.props.dispatch(CounterState.calculate());
   },
 
   renderUserInfo() {
@@ -126,7 +111,7 @@ const CounterView = React.createClass({
           keyboardType='numeric'/>
 
         <TouchableOpacity
-          onPress={this.increment}
+          onPress={this.calculate}
           style={[styles.counterButton, loadingStyle]}>
           <Text style={styles.counter}>
             GO
