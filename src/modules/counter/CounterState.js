@@ -1,4 +1,4 @@
-import {Map} from 'immutable';
+import {Map, fromJS} from 'immutable';
 import {loop, Effects} from 'redux-loop';
 import {generateRandomNumber} from '../../services/randomNumberService';
 
@@ -305,7 +305,7 @@ function getPokemonById(id) {
 
 // Initial state
 const initialState = Map({
-  pokemonList: POKEMON,
+  pokemonList: fromJS(POKEMON),
   selectedPokemon: 1,
   cp: 0,
   calculatedCp: "",

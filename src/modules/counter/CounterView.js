@@ -1,5 +1,6 @@
 import * as CounterState from './CounterState';
 import * as NavigationState from '../../modules/navigation/NavigationState';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import React, {PropTypes} from 'react';
 import {
   StyleSheet,
@@ -16,7 +17,7 @@ const Item = Picker.Item;
 const CounterView = React.createClass({
   propTypes: {
     dispatch: PropTypes.func.isRequired,
-    pokemonList: PropTypes.array,
+    pokemonList: ImmutablePropTypes.list,
     selectedPokemon: PropTypes.number,
     cp: PropTypes.number,
     calculatedCp: PropTypes.string,
@@ -32,9 +33,6 @@ const CounterView = React.createClass({
   },
 
   render() {
-console.log("render");
-console.log(this.props.pokemonList);
-
     const loadingStyle = this.props.loading
       ? {backgroundColor: '#eee'}
       : null;
@@ -50,9 +48,9 @@ console.log(this.props.pokemonList);
           }}>
           {this.props.pokemonList.map((pokemon) => (
             <Item
-              key={pokemon.id}
-              value={pokemon.id}
-              label={pokemon.name}
+              key={pokemon.get('id')}
+              value={pokemon.get('id')}
+              label={pokemon.get('name')}
             />
           ))}
         </Picker>
