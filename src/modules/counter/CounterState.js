@@ -2,7 +2,8 @@ import {Map, fromJS} from 'immutable';
 import {loop, Effects} from 'redux-loop';
 import {generateRandomNumber} from '../../services/randomNumberService';
 
-
+// Use statistics data from sheet
+// https://docs.google.com/spreadsheets/d/13PQVkGncIi7qtmZdnQhLsfv88zR4CIc65M60Cyowacc/htmlview?sle=true#gid=134545558
 var POKEMON = [ { id: 63,
     name: 'Abra',
     nextEvolution: 64,
