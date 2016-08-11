@@ -3,16 +3,20 @@ import * as NavigationState from '../../modules/navigation/NavigationState';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React, {PropTypes} from 'react';
 import {
+  Platform,
   StyleSheet,
   TouchableOpacity,
   Image,
   Text,
   TextInput,
-  Picker,
+  PickerIOS,
   View
 } from 'react-native';
 
-const Item = Picker.Item;
+import PickerAndroid from 'react-native-picker-android';
+
+let Picker = Platform.OS === 'ios' ? PickerIOS : PickerAndroid;
+let Item = Picker.Item;
 
 const CounterView = React.createClass({
   propTypes: {
